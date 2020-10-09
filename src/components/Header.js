@@ -1,25 +1,47 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { AppBar, Toolbar, Grid } from "@material-ui/core";
+import { AppBar, Toolbar, Tabs, Tab } from "@material-ui/core";
+
+function a11yProps(index) {
+  return {
+    id: `wrapped-tab-${index}`,
+    "aria-controls": `wrapped-tabpanel-${index}`,
+  };
+}
 
 const useStyles = makeStyles({
-  theText: {
-    color: "taupe",
+  root: {
+    flexGrow: 1,
   },
 });
 
 const Header = () => {
+  const classes = useStyles();
+  const [value, setValue] = React.useState("one");
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
   return (
-    <AppBar position="static">
-      <Toolbar>
-        <Grid container>
-          <Grid item sm={4} style={{ border: "1px sm red" }}>
-            1
-          </Grid>
-          <Grid item sm={8} style={{ border: "1px sm black" }}>
-            2
-          </Grid>
-        </Grid>
+    <AppBar position="static" className={classes.root}>
+      <Toolbar
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <Tabs
+          value={value}
+          onChange={handleChange}
+          aria-label="wrapped label tabs"
+          centered={true}
+        >
+          <Tab value="one" label="Dashboard" {...a11yProps("one")} />
+          <Tab value="two" label="Category" {...a11yProps("two")} />
+          <Tab value="three" label="Products" {...a11yProps("three")} />
+        </Tabs>
       </Toolbar>
     </AppBar>
   );

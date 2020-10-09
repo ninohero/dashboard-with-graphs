@@ -6,9 +6,9 @@ const theme = createMuiTheme({
   palette: {
     type: "light",
     primary: {
-      main: "#61dafb",
-      light: "#61dafb",
-      dark: "#21a1c4",
+      main: "#61a7c8",
+      light: "#61a7c8",
+      dark: "#217191",
     },
     secondary: {
       main: "#b5ecfb",
@@ -19,7 +19,7 @@ const theme = createMuiTheme({
       main: red.A400,
     },
     background: {
-      default: "#9b9f67",
+      default: "#fff",
     },
   },
   overrides: {
