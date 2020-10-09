@@ -7,6 +7,7 @@ import { makeStyles, withStyles } from "@material-ui/core/styles";
 import {
   Button,
   Drawer,
+  Paper,
   Typography,
   List,
   ListItem,
@@ -51,8 +52,6 @@ function Dashboard(props) {
     setState({ ...state, [anchor]: open });
   };
 
-  console.log(styles.list);
-
   const list = (anchor) => (
     <>
       <Grid container>
@@ -92,37 +91,37 @@ function Dashboard(props) {
     </>
   );
 
-  console.log("props", props);
-
   return (
     <>
-      <img src={logo} className="App-logo" alt="logo" />
-      <Typography variant="h4" component="h1" gutterBottom>
-        Create React App + Material-UI{" "}
-        <i className="material-icons md-dark md-inactive">face</i>
-      </Typography>
-      <p className={classes.certainPTag}>This is a certain paragraph</p>
-      <Button
-        variant="contained"
-        color="primary"
-        onClick={toggleDrawer("top", true)}
-      >
-        Primary Button
-      </Button>
-      <Button
-        variant="contained"
-        color="secondary"
-        onClick={toggleDrawer("top", true)}
-      >
-        Secondary Button
-      </Button>
-      <Drawer
-        anchor={"top"}
-        open={state["top"]}
-        onClose={toggleDrawer("top", false)}
-      >
-        {list("top")}
-      </Drawer>
+      <Paper elevation="2">
+        <img src={logo} className="App-logo" alt="logo" />
+        <Typography variant="h4" component="h1" gutterBottom>
+          Create React App + Material-UI{" "}
+          <i className="material-icons md-dark md-inactive">face</i>
+        </Typography>
+        <p className={classes.certainPTag}>This is a certain paragraph</p>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={toggleDrawer("top", true)}
+        >
+          Primary Button
+        </Button>
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={toggleDrawer("top", true)}
+        >
+          Secondary Button
+        </Button>
+        <Drawer
+          anchor={"top"}
+          open={state["top"]}
+          onClose={toggleDrawer("top", false)}
+        >
+          {list("top")}
+        </Drawer>
+      </Paper>
     </>
   );
 }

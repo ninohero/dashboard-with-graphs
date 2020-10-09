@@ -25,19 +25,14 @@ function App(props) {
   });
 
   return (
-    <>
+    <Container maxWidth="xl" className="App">
       <Header />
-      <Container maxWidth="lg" className="App">
-        <Paper elevation={3}>
-          <SideMenu className={classes.list} />
-        </Paper>
-      </Container>
       <Switch>
         <Route exact path="/" component={Dashboard} />
         <Route path="/category" component={Category} />
         <Route path="/products" component={Products} />
       </Switch>
-    </>
+    </Container>
   );
 }
 
