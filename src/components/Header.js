@@ -1,6 +1,17 @@
 import React, { useState } from "react";
+import { Switch, Route, Link } from "react-router-dom";
+import history from "./../history";
 import { makeStyles } from "@material-ui/core/styles";
-import { AppBar, Toolbar, Tabs, Tab } from "@material-ui/core";
+import {
+  AppBar,
+  IconButton,
+  Toolbar,
+  Tabs,
+  Tab,
+  Typography,
+  Button,
+} from "@material-ui/core";
+import { Menu } from "@material-ui/icons";
 
 function a11yProps(index) {
   return {
@@ -24,24 +35,26 @@ const Header = () => {
   };
 
   return (
-    <AppBar position="static" className={classes.root}>
-      <Toolbar
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          aria-label="wrapped label tabs"
-          centered={true}
+    <AppBar position="static">
+      <Toolbar>
+        <IconButton
+          edge="start"
+          className={classes.menuButton}
+          color="inherit"
+          aria-label="menu"
         >
-          <Tab value="one" label="Dashboard" {...a11yProps("one")} />
-          <Tab value="two" label="Category" {...a11yProps("two")} />
-          <Tab value="three" label="Products" {...a11yProps("three")} />
-        </Tabs>
+          <Menu />
+        </IconButton>
+
+        <Button color="inherit">
+          <Link to="/">Dashboard</Link>
+        </Button>
+        <Button color="inherit">
+          <Link to="/Category">Category</Link>
+        </Button>
+        <Button color="inherit">
+          <Link to="/Products">Products</Link>
+        </Button>
       </Toolbar>
     </AppBar>
   );
